@@ -41,3 +41,23 @@ ClassLibrary1/
 5. **Run Tests:**  
    ```bash
    dotnet test
+
+## Database Schema
+```sql
+-- Contacts Table
+CREATE TABLE Contacts (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    FirstName TEXT NOT NULL,
+    LastName TEXT NOT NULL
+);
+
+-- Addresses Table
+CREATE TABLE Addresses (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    ContactId INTEGER NOT NULL,
+    Street TEXT,
+    City TEXT,
+    State TEXT,
+    ZipCode TEXT,
+    FOREIGN KEY (ContactId) REFERENCES Contacts(Id) ON DELETE CASCADE
+);
