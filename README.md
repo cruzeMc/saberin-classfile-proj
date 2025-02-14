@@ -3,7 +3,7 @@
 **ClassLibrary1** is a shared class library that provides the core domain models, data transfer objects (DTOs), mapping configurations, and repository/service interfaces for the Contact Manager application. It ensures consistency across the entire solution by centralizing:
 
 - **Models:**  
-  Domain entities such as `Contact` and `Address`, which include data annotations for validation.
+  Database entities such as `Contact` and `Address`, which includes data annotations for validation.
 - **DTOs:**  
   Data Transfer Objects (e.g., `ContactDTO` and `AddressDTO`) for communication between the API, UI, and business logic layers.
 
@@ -16,30 +16,29 @@ ClassLibrary1/
 │   ├── ContactDTO.cs - Contains the Data Transfer Object (DTO) for the Contact entity.
 │   └── AddressDTO.cs - Contains the Data Transfer Object (DTO) for the Address entity.
 └── Models
-    ├── Contact.cs - Defines the Contact domain model, including validation attributes.
-    └── Address.cs - Defines the Address domain model with validation and foreign key relationships.
-
+    ├── Contact.cs - Defines the Contact database model, including validation annotations eg. [Required].
+    └── Address.cs - Defines the Address database model with validations and foreign key relationships.
  ```
 
 ## Setup Instructions
 
 1. **Clone the Repository:**  
-   Clone the repository to your local machine:
    ```bash
    git clone <repository-url>
 
-2. **Restore Dependencies:**  
-   From the solution root, run 
-    ```bash
-          dotnet restore
-
-3. **Build the Project:**  
-   Navigate to the ClassLibrary1 directory and build the project:  
+2. **Navigate to the root directory:**
    ```bash
-   dotnet build ClassLibrary1/ClassLibrary1.csproj
+   cd {root directory}
 
-4. **Run Tests:**  
-   If tests are provided (e.g., for mapping configurations or model validations), navigate to the test project folder and run:
+3. **Restore Dependencies:**  
+    ```bash
+    dotnet restore
+
+4. **Build the Project:**  
+   ```bash
+   dotnet build
+
+5. **Run Tests:**  
    ```bash
    dotnet test
 
